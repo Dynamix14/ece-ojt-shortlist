@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECE OJT shortlist — stipends & drive times from Taft</title>
+<meta name="description" content="Seven face-to-face OJT companies that list ECE, ranked by driving distance from Taft, Malate, with the internship allowance each one actually pays.">
+<style>
+  :root{
+    --ink:#141a1f; --ink-2:#3d4a52; --muted:#6b7a82;
+    --paper:#f7f4ee; --surface:#fffdf9; --line:#ddd6c9; --line-soft:#e9e3d8;
+    --accent:#a8331f; --accent-soft:#f4e3dd;
+    --ok:#1f5c3d; --ok-soft:#e2efe6;
+    --warn:#8a5a00; --warn-soft:#f7ecd7;
+    --radius:3px; --max:1060px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none;text-underline-offset:2px}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  header.mast{border-bottom:2px solid var(--ink)}
+  .mast-inner{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;padding:26px 20px 16px;max-width:var(--max);margin:0 auto}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(29px,4.6vw,44px);line-height:1.06;margin:6px 0 8px;letter-spacing:-.01em}
+  .dek{max-width:58ch;color:var(--ink-2);font-size:15px;margin:0}
+  .stamp{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right;line-height:1.7;white-space:nowrap}
+  .controls{position:sticky;top:0;z-index:20;background:rgba(247,244,238,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:11px 0}
+  .controls-inner{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;max-width:var(--max);margin:0 auto;padding:0 20px}
+  .filters{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font:inherit;font-size:13px;padding:5px 11px;background:transparent;border:1px solid var(--line);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+  .chip:hover{border-color:var(--ink-2)}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+  .search{margin-left:auto;display:flex;align-items:center;gap:8px}
+  .search input{font:inherit;font-size:14px;padding:7px 10px;width:190px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink)}
+  .count{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  main{padding:24px 0 8px}
+  .lead p{margin:0 0 12px;font-size:14.5px;color:var(--ink-2);max-width:78ch}
+  .lead strong{color:var(--ink)}
+  .bench{font-size:12.5px;color:var(--muted);border-left:2px solid var(--line);padding-left:10px;margin:0 0 22px;max-width:78ch}
+  h2.sec{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
+  table.money-table{width:100%;border-collapse:collapse;margin:0 0 26px;font-size:14px}
+  table.money-table th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:0 10px 6px 0;border-bottom:1px solid var(--ink)}
+  table.money-table td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  tr.amount .t-money{color:var(--ok);font-weight:600}
+  tr.hint .t-money{color:var(--warn);font-weight:600}
+  tr.none .t-money{color:var(--muted)}
+  .t-name{font-weight:600;white-space:nowrap}
+  .t-money{white-space:nowrap;font-variant-numeric:tabular-nums}
+  .t-km{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+  .t-note{color:var(--muted);font-size:12.5px}
+  ol.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  li.row{display:grid;grid-template-columns:44px 1fr;gap:0 18px;padding:20px 0 22px;border-bottom:1px solid var(--line)}
+  .rank{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px;text-align:right}
+  .body{min-width:0}
+  .head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:10px}
+  h2{font-family:var(--serif);font-size:21px;font-weight:600;margin:0;line-height:1.25}
+  .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+  .b-high{background:var(--ok-soft);color:var(--ok)}
+  .b-mid{background:var(--warn-soft);color:var(--warn)}
+  .b-low{background:#ecebe6;color:var(--muted)}
+  .m-yes{background:var(--ok-soft);color:var(--ok)}
+  .m-soft{background:var(--warn-soft);color:var(--warn)}
+  .m-no{background:#ecebe6;color:var(--muted)}
+  .dist{margin-left:auto;display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+  .bar{width:70px;height:4px;background:var(--line-soft);border-radius:2px;overflow:hidden;display:inline-block}
+  .bar i{display:block;height:100%;background:var(--accent);border-radius:2px}
+  .bar i.far{background:var(--muted)}
+  .money{border:1px solid var(--line);border-radius:var(--radius);padding:10px 13px 11px;background:var(--surface);margin:0 0 12px}
+  .money.amount{border-left:3px solid var(--ok)}
+  .money.hint{border-left:3px solid var(--warn)}
+  .money.none{border-left:3px solid var(--line)}
+  .m-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .m-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .m-top a{font-size:11.5px}
+  .m-amount{font-family:var(--serif);font-size:24px;line-height:1.2;margin:2px 0 4px;letter-spacing:-.01em}
+  .money.amount .m-amount{color:var(--ok)}
+  .money.none .m-amount{color:var(--muted);font-size:19px}
+  .m-basis{margin:0;font-size:12.5px;color:var(--ink-2)}
+  .m-note{margin:5px 0 0;font-size:12.5px;color:var(--muted)}
+  .roles{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:3px}
+  .roles li{position:relative;padding-left:15px;font-size:14px}
+  .roles li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;background:var(--accent);border-radius:50%;opacity:.6}
+  .what{font-size:13px;color:var(--ink-2);margin:9px 0 0;max-width:74ch}
+  .what b{color:var(--muted);font-weight:600;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
+  .reality{margin:12px 0 0;padding:10px 13px 11px;background:var(--surface);border:1px solid var(--line-soft);border-left:2px solid var(--ok);border-radius:var(--radius)}
+  .reality.none{border-left-color:var(--line);background:transparent}
+  .r-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px;margin-bottom:6px}
+  .r-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ok)}
+  .r-tag.muted{color:var(--muted)}
+  .r-stars{font-family:var(--mono);font-size:11px;background:var(--ok-soft);color:var(--ink);padding:1px 6px;border-radius:2px}
+  .r-src{font-size:11.5px;color:var(--muted)}
+  .r-head a{font-size:11.5px}
+  .r-list{margin:0;padding:0;list-style:none;display:grid;gap:3px}
+  .r-list li{position:relative;padding-left:14px;font-size:13px;color:var(--ink-2)}
+  .r-list li::before{content:"—";position:absolute;left:0;color:var(--muted);font-size:12px}
+  blockquote{margin:8px 0 0;padding-left:11px;border-left:2px solid var(--line);font-size:12.5px;font-style:italic;color:var(--ink-2)}
+  .links{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:11px;font-size:13px}
+  .links a::after{content:"\2197";font-size:10px;opacity:.55;margin-left:3px}
+  .links .post{color:var(--ok);font-weight:600}
+  .links .post::after{content:"\2713";opacity:.7}
+  details.more{margin-top:9px}
+  details.more summary{cursor:pointer;color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;list-style:none;display:inline-flex;gap:6px;align-items:center}
+  details.more summary::-webkit-details-marker{display:none}
+  details.more summary::before{content:"+";font-size:13px;color:var(--accent)}
+  details.more[open] summary::before{content:"\2212"}
+  .panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:4px 22px;margin-top:8px;padding:10px 12px;background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius)}
+  .kv{display:grid;grid-template-columns:74px 1fr;gap:2px 8px;font-size:12.5px;padding:2px 0;margin:0}
+  .kv dt{color:var(--muted);font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
+  .kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+  .empty{padding:36px 0;color:var(--muted);font-family:var(--mono);font-size:13px}
+  footer{border-top:2px solid var(--ink);margin-top:28px;padding:24px 0 44px}
+  footer h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 9px}
+  footer li,footer p{font-size:12.5px;color:var(--ink-2);max-width:80ch}
+  footer ul{padding-left:18px;margin:0 0 16px}
+  footer li{margin-bottom:5px}
+  .cols{display:grid;gap:24px;grid-template-columns:1fr 1fr}
+  @media (max-width:720px){
+    .cols{grid-template-columns:1fr}
+    .stamp{text-align:left}
+    li.row{grid-template-columns:28px 1fr;gap:0 10px}
+    .dist{margin-left:0;order:9;width:100%}
+    .search{margin-left:0;width:100%}
+    .search input{width:100%}
+    .t-note{display:none}
+    .m-amount{font-size:21px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="mast-inner">
+    <div>
+      <div class="eyebrow">Mapúa ECE · v2 · the shortlist</div>
+      <h1>Seven ECE targets,<br>and what each one pays</h1>
+      <p class="dek">Narrowed to the companies you'd actually take. Ranked by drive time from DLSU–Taft, with the internship allowance traced to a posting, a review or a public statement — and marked <em>not published</em> where nobody has ever said.</p>
+    </div>
+    <div class="stamp">
+      2 with a ₱ figure<br>
+      2 with a hint only<br>
+      3 with nothing<br>
+      checked 7 Nov 2026
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="filters" role="group" aria-label="Filter companies">
+      <button class="chip" data-filter="all" aria-pressed="true">All 7</button>
+      <button class="chip" data-filter="cash" aria-pressed="false">Has a ₱ figure</button>
+      <button class="chip" data-filter="silent" aria-pressed="false">Nothing published</button>
+      <button class="chip" data-filter="near" aria-pressed="false">≤ 6 km</button>
+      <button class="chip" data-filter="high" aria-pressed="false">Strong ECE fit</button>
+    </div>
+    <div class="search">
+      <label for="q" class="count">search</label>
+      <input id="q" type="search" placeholder="stipend, RF, ELV, BGC…" autocomplete="off">
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="lead">
+    <p><strong>Read the money column first.</strong> Only <strong>Security Bank</strong> and <strong>Coca-Cola EP</strong> publish an allowance. Meralco and Lattice allude to one without a number. APMC, Meinhardt and Edgepoint have never stated one — for those, assume unpaid until HR puts it in writing.</p>
+    <p class="bench">Indeed puts the Philippine engineering intern at ₱15,307/mo on average (₱18,255 in Manila) — but that is 3 reported salaries, so treat it as a sniff test, not a rate card.</p>
+  </div>
+
+  <h2 class="sec">Allowance at a glance</h2>
+  <table class="money-table">
+    <thead><tr><th>Company</th><th>Allowance</th><th>Distance</th><th>Basis</th></tr></thead>
+    <tbody><tr class="none">
+      <td class="t-name">APMC</td>
+      <td class="t-money">no figure on record</td>
+      <td class="t-km">4.7 km</td>
+      <td class="t-note">MOA listing states no allowance; no intern mentions pay in any review.</td>
+    </tr>
+<tr class="amount">
+      <td class="t-name">Security Bank</td>
+      <td class="t-money">₱9,000 – 10,000 / mo</td>
+      <td class="t-km">4.7 km</td>
+      <td class="t-note">Prosple salary field on STAR postings — ₱9,000–10,000 for the Feb 2026 Industrial Engineering cohort; the Cebu…</td>
+    </tr>
+<tr class="none">
+      <td class="t-name">Edgepoint Towers</td>
+      <td class="t-money">no figure on record</td>
+      <td class="t-km">4.9 km</td>
+      <td class="t-note">Their Engineering Intern listing shows “pay information not provided”; no intern reviews exist.</td>
+    </tr>
+<tr class="none">
+      <td class="t-name">Meinhardt PH</td>
+      <td class="t-money">no figure on record</td>
+      <td class="t-km">5.1 km</td>
+      <td class="t-note">No stipend published anywhere; consultancy OJT in PH is typically unpaid.</td>
+    </tr>
+<tr class="amount">
+      <td class="t-name">Coca-Cola EP Aboitiz</td>
+      <td class="t-money">₱17,000 – 20,000 / mo</td>
+      <td class="t-km">8.8 km</td>
+      <td class="t-note">Indeed salary line on their Industrial Engineering Intern role at the Santa Rosa plant: PHP 17,000 – 20,000 a …</td>
+    </tr>
+<tr class="hint">
+      <td class="t-name">Meralco Power Academy</td>
+      <td class="t-money">low — figure not published</td>
+      <td class="t-km">13.8 km</td>
+      <td class="t-note">Prosple intern review: “As an intern, the pay was a bit low considering the commute expenses.” No number publi…</td>
+    </tr>
+<tr class="hint">
+      <td class="t-name">Lattice Semiconductor</td>
+      <td class="t-money">“competitive stipend” — no figure</td>
+      <td class="t-km">19.7 km</td>
+      <td class="t-note">Prosple: “Interns at Lattice Semiconductor may receive competitive stipends.” Their EE full-time roles post at…</td>
+    </tr></tbody>
+  </table>
+
+  <h2 class="sec">The seven, in detail</h2>
+  <ol class="list">
+  <li class="row" data-km="4.7" data-fit="MED-HIGH" data-money="none" data-text="apmc building systems (elv/cctv/fdas/bms) engineering intern; facilities maintenance &amp; testing intern; auxiliary systems intern (gensets, ups, elevators); instrumentation exposure via usher seismic-monitoring installs integrated property management for ayala land towers, malls, parking, waterworks; special technical services. mse building, ayala avenue, makati city no figure on record moa listing states no allowance; no intern mentions pay in any review. workload is genuinely light — &quot;not much to do most of the time&quot;, &quot;job is not that hard if you&#x27;re an intern&quot;. exposure is site/property based: construction walkthroughs, building operations, hands-on with the engineering team. teams are described as friendly and willing to teach; little of it is electronics design.">
+    <div class="rank">01</div>
+    <div class="body">
+      <div class="head">
+        <h2>APMC</h2>
+        <span class="badge b-high">good ECE fit</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:46%"></i></span>4.7 km · ~6 min</span>
+      </div>
+      <div class="money none">
+      <div class="m-top"><span class="m-label">expected allowance</span><a href="https://ph.indeed.com/cmp/Ayala-Property-Management-Corporation/job-titles/Intern" target="_blank" rel="noopener">source</a></div>
+      <div class="m-amount">no figure on record</div>
+      <p class="m-basis">MOA listing states no allowance; no intern mentions pay in any review.</p>
+      <p class="m-note">Assume unpaid unless HR says otherwise — APMC is a property manager, not a tech stipend shop. Budget for daily commute from Taft (₱50–80 round trip).</p>
+    </div>
+      <ul class="roles"><li>Building systems (ELV/CCTV/FDAS/BMS) engineering intern</li><li>facilities maintenance &amp; testing intern</li><li>auxiliary systems intern (gensets, UPS, elevators)</li><li>instrumentation exposure via USHER seismic-monitoring installs</li></ul>
+      <p class="what"><b>what they do</b>Integrated property management for Ayala Land towers, malls, parking, waterworks; special technical services.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">4.8 / 5</span>
+          <span class="r-src">Indeed · 4 intern reviews</span><a href="https://ph.indeed.com/cmp/Ayala-Property-Management-Corporation/job-titles/Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Workload is genuinely light — &quot;not much to do most of the time&quot;, &quot;job is not that hard if you&#x27;re an intern&quot;.</li><li>Exposure is site/property based: construction walkthroughs, building operations, hands-on with the engineering team.</li><li>Teams are described as friendly and willing to teach; little of it is electronics design.</li></ul><blockquote>&quot;I carried a lot of learnings... they really provided a strong foundation of hands on experience about construction.&quot;</blockquote></div>
+      <div class="links"><a href="https://www.ayalaproperty.com.ph/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/ayala-property-management-corporation" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.kalibrr.ph/c/ayala-property-management-corporation-apmc/jobs" target="_blank" rel="noopener">careers</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>MSE Building, Ayala Avenue, Makati City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Rigel Marie C. Tiglao<br><span style="color:var(--muted)">HR Talent Acquisition Management</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:caunca.gel@ayalaprperty.com.ph">caunca.gel@ayalaprperty.com.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>October 22, 2025 - October 21, 2028</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="4.7" data-fit="MEDIUM" data-money="amount" data-text="security bank it infrastructure / network operations intern (data centre, lan/wan, structured cabling); information security / soc intern; atm &amp; self-service channel engineering intern; facilities &amp; business-continuity engineering intern universal bank; star (student training and advanced readiness) internship program run per business unit. 6776 ayala avenue, makati city ₱9,000 – 10,000 / mo prosple salary field on star postings — ₱9,000–10,000 for the feb 2026 industrial engineering cohort; the cebu cohort listed ₱5,000–7,000. rotation across a business unit — interns report real tasks (industry research, competitor scans, vendor surveys) plus clerical work. allowance is real money (~₱10k+) but at least one cohort was paid more than 2 months after finishing. unit-dependent: marketing, corporate banking and star cohorts described differently. ask which unit you&#x27;d land in.">
+    <div class="rank">02</div>
+    <div class="body">
+      <div class="head">
+        <h2>Security Bank</h2>
+        <span class="badge b-mid">partial fit</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:46%"></i></span>4.7 km · ~6 min</span>
+      </div>
+      <div class="money amount">
+      <div class="m-top"><span class="m-label">expected allowance</span><a href="https://ph.prosple.com/graduate-employers/security-bank-corporation/jobs-internships" target="_blank" rel="noopener">source</a></div>
+      <div class="m-amount">₱9,000 – 10,000 / mo</div>
+      <p class="m-basis">Prosple salary field on STAR postings — ₱9,000–10,000 for the Feb 2026 Industrial Engineering cohort; the Cebu cohort listed ₱5,000–7,000.</p>
+      <p class="m-note">Best-documented stipend on the list. Catch: one 2025 cohort was paid more than two months after finishing.</p>
+    </div>
+      <ul class="roles"><li>IT Infrastructure / Network Operations intern (data centre, LAN/WAN, structured cabling)</li><li>Information Security / SOC intern</li><li>ATM &amp; self-service channel engineering intern</li><li>facilities &amp; business-continuity engineering intern</li></ul>
+      <p class="what"><b>what they do</b>Universal bank; STAR (Student Training and Advanced Readiness) Internship Program run per business unit.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">4.0 / 5</span>
+          <span class="r-src">Indeed · 4 intern reviews</span><a href="https://ph.indeed.com/cmp/Security-Bank-Corporation/job-titles/Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Rotation across a business unit — interns report real tasks (industry research, competitor scans, vendor surveys) plus clerical work.</li><li>Allowance is real money (~₱10k+) but at least one cohort was paid more than 2 months after finishing.</li><li>Unit-dependent: marketing, corporate banking and STAR cohorts described differently. Ask which unit you&#x27;d land in.</li></ul><blockquote>&quot;Our allowance took more than 2 months after finishing the internship before we received it.&quot;</blockquote></div>
+      <div class="links"><a href="https://www.securitybank.com/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/security-bank-corporation" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.securitybank.com/careers/security-bank-internship-program/" target="_blank" rel="noopener">careers</a><a class="post" href="https://www.linkedin.com/jobs/view/3935143880" target="_blank" rel="noopener">STAR Internship Program</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>6776 Ayala Avenue, Makati City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Jamila E. Pialago<br><span style="color:var(--muted)">Sr. Asst. Manager/Talent Acquisition- RecruitmentMarketing &amp; Strategy</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:MFrancisco@securitybank.com.ph">MFrancisco@securitybank.com.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>July 2024 - July 2027</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="4.9" data-fit="HIGH" data-money="none" data-text="edgepoint towers rf / radio planning &amp; site design intern; site engineering intern (structural loading, grounding, lightning protection); power systems intern (rectifiers, gensets, solar-hybrid); noc / remote monitoring intern tower &amp; ancillary infrastructure: ground-base towers, monopoles, rooftop, smart poles; site acquisition, build, maintenance, upgrades for mobile operators. 26th floor, robinsons summit center, ayala makati city no figure on record their engineering intern listing shows “pay information not provided”; no intern reviews exist. nothing on indeed, jobstreet, glassdoor or reddit under this name — the ph entity is young and rarely reviews. expect site/field work: tower sites, power cabinets, grounding, drive testing. treat the role list as inferred only.">
+    <div class="rank">03</div>
+    <div class="body">
+      <div class="head">
+        <h2>Edgepoint Towers</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:47%"></i></span>4.9 km · ~7 min</span>
+      </div>
+      <div class="money none">
+      <div class="m-top"><span class="m-label">expected allowance</span><a href="https://ph.jobrapido.com/jobpreview/62085764455858176" target="_blank" rel="noopener">source</a></div>
+      <div class="m-amount">no figure on record</div>
+      <p class="m-basis">Their Engineering Intern listing shows “pay information not provided”; no intern reviews exist.</p>
+      <p class="m-note">Tower companies usually pay field allowances rather than a stipend. Ask specifically about transport + meal allowance for site visits.</p>
+    </div>
+      <ul class="roles"><li>RF / radio planning &amp; site design intern</li><li>site engineering intern (structural loading, grounding, lightning protection)</li><li>power systems intern (rectifiers, gensets, solar-hybrid)</li><li>NOC / remote monitoring intern</li></ul>
+      <p class="what"><b>what they do</b>Tower &amp; ancillary infrastructure: ground-base towers, monopoles, rooftop, smart poles; site acquisition, build, maintenance, upgrades for mobile operators.</p>
+      <div class="reality none">
+          <div class="r-head"><span class="r-tag muted">intern reality</span>
+          <span class="r-src">no first-hand account found — duties are inferred</span></div>
+          <ul class="r-list"><li>Nothing on Indeed, JobStreet, Glassdoor or Reddit under this name — the PH entity is young and rarely reviews.</li><li>Expect site/field work: tower sites, power cabinets, grounding, drive testing. Treat the role list as inferred only.</li></ul></div>
+      <div class="links"><a href="https://edgepointinfra.com/" target="_blank" rel="noopener">website</a><a href="https://edgepointinfra.com/get-in-touch" target="_blank" rel="noopener">careers</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>26th Floor, Robinsons Summit Center, Ayala Makati City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Agcelene Kate Sojor (Kate)<br><span style="color:var(--muted)">Executive, HR &amp; Admin</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:kate.sojor@edgepointinfra.com">kate.sojor@edgepointinfra.com</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>September 2025 - September 2027</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="5.1" data-fit="HIGH" data-money="none" data-text="meinhardt ph elv / electronics engineering design intern; ict &amp; structured-cabling design intern; fire detection &amp; alarm (fdas) design intern; bim/revit modelling intern; site supervision &amp; testing-commissioning intern multi-disciplinary consultancy: electronics engineering (elv), fire &amp; life safety, security/cctv, ict, mepf, rail &amp; transport, data centres. bim-driven design. 25f chatham house 116 rufino cor. valero sts. salcedo village, makati city no figure on record no stipend published anywhere; consultancy ojt in ph is typically unpaid. &quot;light working environment&quot;, friendly engineers, work-life balance good — the single review is positive but thin. consultancy cadence: drawings, bim coordination, site visits, submittals — not lab work.">
+    <div class="rank">04</div>
+    <div class="body">
+      <div class="head">
+        <h2>Meinhardt PH</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:48%"></i></span>5.1 km · ~6 min</span>
+      </div>
+      <div class="money none">
+      <div class="m-top"><span class="m-label">expected allowance</span><a href="https://ph.indeed.com/cmp/Meinhardt-Philippines-Inc./reviews?fjobtitle=Intern" target="_blank" rel="noopener">source</a></div>
+      <div class="m-amount">no figure on record</div>
+      <p class="m-basis">No stipend published anywhere; consultancy OJT in PH is typically unpaid.</p>
+      <p class="m-note">Their only intern review calls it “light” — a low-cost placement, in both senses. Negotiate a transport allowance up front.</p>
+    </div>
+      <ul class="roles"><li>ELV / Electronics Engineering design intern</li><li>ICT &amp; structured-cabling design intern</li><li>Fire detection &amp; alarm (FDAS) design intern</li><li>BIM/Revit modelling intern</li><li>site supervision &amp; testing-commissioning intern</li></ul>
+      <p class="what"><b>what they do</b>Multi-disciplinary consultancy: Electronics Engineering (ELV), Fire &amp; Life Safety, Security/CCTV, ICT, MEPF, rail &amp; transport, data centres. BIM-driven design.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">4.0 / 5</span>
+          <span class="r-src">Indeed · 1 intern review</span><a href="https://ph.indeed.com/cmp/Meinhardt-Philippines-Inc./reviews?fjobtitle=Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>&quot;Light working environment&quot;, friendly engineers, work-life balance good — the single review is positive but thin.</li><li>Consultancy cadence: drawings, BIM coordination, site visits, submittals — not lab work.</li></ul><blockquote>&quot;Fun work place and light working environment... it helps me to develop my skills.&quot;</blockquote></div>
+      <div class="links"><a href="https://meinhardt.ph/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/meinhardt-group" target="_blank" rel="noopener">LinkedIn</a><a href="https://meinhardt.ph/careers/" target="_blank" rel="noopener">careers</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>25F Chatham House 116 Rufino cor. Valero Sts. Salcedo Village, Makati City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Glaiza Lacanlalay<br><span style="color:var(--muted)">HR Head</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:glacanlalay@meinhardt.com.ph">glacanlalay@meinhardt.com.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>March 15, 2024 - March 15, 2027</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="8.8" data-fit="MED-HIGH" data-money="amount" data-text="coca-cola ep aboitiz automation &amp; controls intern (plc/scada/hmi); instrumentation &amp; metering intern; packaging-line electrical maintenance intern; utilities engineering intern (chillers, compressors, power) beverage manufacturing plants (calamba, sta. rosa, canlubang and others): bottling lines, utilities, packaging. 28f net lima building, 5th avenue corner 26th street, bonifacio global city, taguig city ₱17,000 – 20,000 / mo indeed salary line on their industrial engineering intern role at the santa rosa plant: php 17,000 – 20,000 a month. every review is from a corporate-function intern (people systems, hr operations) in bgc — not a plant. described as light, friendly, with staff who genuinely teach. nobody reports line/automation work.">
+    <div class="rank">05</div>
+    <div class="body">
+      <div class="head">
+        <h2>Coca-Cola EP Aboitiz</h2>
+        <span class="badge b-high">good ECE fit</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="" style="width:63%"></i></span>8.8 km · ~10 min</span>
+      </div>
+      <div class="money amount">
+      <div class="m-top"><span class="m-label">expected allowance</span><a href="https://ph.indeed.com/cmp/Coca--cola-Europacific-Aboitiz-Philippines-1/locations/04A/Santa%20Rosa%20City" target="_blank" rel="noopener">source</a></div>
+      <div class="m-amount">₱17,000 – 20,000 / mo</div>
+      <p class="m-basis">Indeed salary line on their Industrial Engineering Intern role at the Santa Rosa plant: PHP 17,000 – 20,000 a month.</p>
+      <p class="m-note">The money is in the Laguna plants, not the BGC office — and a reviewer notes the internship is “heavier compared to other companies”. Commute from Manila is 1.5–2 h each way.</p>
+    </div>
+      <ul class="roles"><li>Automation &amp; controls intern (PLC/SCADA/HMI)</li><li>instrumentation &amp; metering intern</li><li>packaging-line electrical maintenance intern</li><li>utilities engineering intern (chillers, compressors, power)</li></ul>
+      <p class="what"><b>what they do</b>Beverage manufacturing plants (Calamba, Sta. Rosa, Canlubang and others): bottling lines, utilities, packaging.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">5.0 / 5</span>
+          <span class="r-src">Indeed · 3 intern reviews</span><a href="https://ph.indeed.com/cmp/Coca--cola-Europacific-Aboitiz-Philippines-1/job-titles/Intern" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Every review is from a corporate-function intern (People Systems, HR Operations) in BGC — not a plant.</li><li>Described as light, friendly, with staff who genuinely teach. Nobody reports line/automation work.</li></ul><blockquote>&quot;Interned for the People Systems department (HR Operations), very light and friendly vibes.&quot;</blockquote></div>
+      <div class="links"><a href="https://www.ccep.com.ph/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/coca-cola-europacific-partners" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.ccep.com.ph/careers" target="_blank" rel="noopener">careers</a><a class="post" href="https://www.linkedin.com/jobs/view/4284100749" target="_blank" rel="noopener">Internship</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>28F Net Lima Building, 5th Avenue corner 26th Street, Bonifacio Global City, Taguig City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Manelyn Ravilles<br><span style="color:var(--muted)">People Operation</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:manelyn.ravilles@coca-cola.com.ph">manelyn.ravilles@coca-cola.com.ph</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>September 20, 2024 - September 20, 2027</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="13.8" data-fit="MED-HIGH" data-money="hint" data-text="meralco power academy powercamp intern — rotation through meralco / miescor (substations, lines, protection); energy-lab &amp; training-support intern; smart-grid / metering exposure meralco&#x27;s training arm; powercamp is their flagship engineering internship across the one meralco ecosystem. lopez building, ortigas avenue, barangay ugong, pasig city low — figure not published prosple intern review: “as an intern, the pay was a bit low considering the commute expenses.” no number published. powercamp is 280 hours, june–july, and mapúa is an explicit partner university — the most selective option here. interns rotate through one meralco companies, visit the power lab (appliance testing/efficiency), do business casing and a live case presentation. it&#x27;s a recruitment pipeline: alumni convert to cadet engineer roles (e.g. mgen renewables).">
+    <div class="rank">06</div>
+    <div class="body">
+      <div class="head">
+        <h2>Meralco Power Academy</h2>
+        <span class="badge b-high">good ECE fit</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="far" style="width:79%"></i></span>13.8 km · ~18 min</span>
+      </div>
+      <div class="money hint">
+      <div class="m-top"><span class="m-label">expected allowance</span><a href="https://www.meralcopoweracademy.org/powercamp/" target="_blank" rel="noopener">source</a></div>
+      <div class="m-amount">low — figure not published</div>
+      <p class="m-basis">Prosple intern review: “As an intern, the pay was a bit low considering the commute expenses.” No number published.</p>
+      <p class="m-note">280 hours, June–July, Mapúa is an explicit partner school. Treat it as a recruitment pipeline, not a paycheck: alumni convert to Cadet Engineer roles.</p>
+    </div>
+      <ul class="roles"><li>PowerCamp intern — rotation through Meralco / MIESCOR (substations, lines, protection)</li><li>energy-lab &amp; training-support intern</li><li>smart-grid / metering exposure</li></ul>
+      <p class="what"><b>what they do</b>Meralco&#x27;s training arm; PowerCamp is their flagship engineering internship across the One Meralco ecosystem.</p>
+      <div class="reality none">
+          <div class="r-head"><span class="r-tag muted">intern reality</span>
+          <span class="r-src">no first-hand account found — duties are inferred</span></div>
+          <ul class="r-list"><li>PowerCamp is 280 hours, June–July, and Mapúa is an explicit partner university — the most selective option here.</li><li>Interns rotate through One Meralco companies, visit the Power Lab (appliance testing/efficiency), do business casing and a live case presentation.</li></ul></div>
+      <div class="links"><a href="https://www.meralcopoweracademy.org/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/meralcopoweracademy" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.meralcopoweracademy.org/powercamp/" target="_blank" rel="noopener">careers</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>Lopez Building, Ortigas Avenue, Barangay Ugong, Pasig City</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Kathleen Kristy Dorico<br><span style="color:var(--muted)">Director for Advocacy and Communication</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:kkddorico@meralcopoweracademy.org">kkddorico@meralcopoweracademy.org/ apestrella@meralcopoweracademy.org</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>March 25, 2025 until March 24, 2028</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  <li class="row" data-km="19.7" data-fit="HIGH" data-money="hint" data-text="lattice semiconductor design verification intern (uvm/systemverilog); fpga applications engineering intern; test/product engineering intern; board bring-up &amp; lab validation intern low-power fpga design, software &amp; ip; alabang/northgate site does design and applications engineering. 11f aeon center, zapote road, n bridgeway, alabang, muntinlupa “competitive stipend” — no figure prosple: “interns at lattice semiconductor may receive competitive stipends.” their ee full-time roles post at ₱30,000–40,000/mo. intern review: good environment, competitive compensation, &quot;you&#x27;ll definitely learn a lot&quot;, easy-going people. jobstreet employees add the caveat: weak onboarding — &quot;no transparent training, you have to learn it yourself&quot;. career development scores lowest of their sub-ratings (3.9/5) while work-life balance is highest (4.6/5).">
+    <div class="rank">07</div>
+    <div class="body">
+      <div class="head">
+        <h2>Lattice Semiconductor</h2>
+        <span class="badge b-high">strong ECE fit</span>
+        <span class="dist"><span class="bar" aria-hidden="true"><i class="far" style="width:95%"></i></span>19.7 km · ~22 min</span>
+      </div>
+      <div class="money hint">
+      <div class="m-top"><span class="m-label">expected allowance</span><a href="https://prosple.com/graduate-employers/lattice-semiconductor/jobs-internships/cadeda-intern" target="_blank" rel="noopener">source</a></div>
+      <div class="m-amount">“competitive stipend” — no figure</div>
+      <p class="m-basis">Prosple: “Interns at Lattice Semiconductor may receive competitive stipends.” Their EE full-time roles post at ₱30,000–40,000/mo.</p>
+      <p class="m-note">Highest ceiling on the list but the least transparency. Ask HR directly for the intern rate before accepting.</p>
+    </div>
+      <ul class="roles"><li>Design Verification Intern (UVM/SystemVerilog)</li><li>FPGA Applications Engineering intern</li><li>Test/Product Engineering intern</li><li>board bring-up &amp; lab validation intern</li></ul>
+      <p class="what"><b>what they do</b>Low-power FPGA design, software &amp; IP; Alabang/Northgate site does design and applications engineering.</p>
+      <div class="reality">
+          <div class="r-head"><span class="r-tag">intern reality</span><span class="r-stars">5.0 / 5</span>
+          <span class="r-src">Indeed · 1 intern review + JobStreet 4.7/5 (14)</span><a href="https://ph.jobstreet.com/companies/lattice-semiconductor-168556645019714/reviews" target="_blank" rel="noopener">source</a></div>
+          <ul class="r-list"><li>Intern review: good environment, competitive compensation, &quot;you&#x27;ll definitely learn a lot&quot;, easy-going people.</li><li>JobStreet employees add the caveat: weak onboarding — &quot;no transparent training, you have to learn it yourself&quot;.</li><li>Career development scores lowest of their sub-ratings (3.9/5) while work-life balance is highest (4.6/5).</li></ul><blockquote>&quot;Good environment, good compensation benefits and incentives. You&#x27;ll definitely learn a lot.&quot;</blockquote></div>
+      <div class="links"><a href="https://www.latticesemi.com/" target="_blank" rel="noopener">website</a><a href="https://www.linkedin.com/company/latticesemi" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.latticesemi.com/careers" target="_blank" rel="noopener">careers</a><a class="post" href="https://www.linkedin.com/jobs/view/4221237793" target="_blank" rel="noopener">Design Verification Intern</a></div>
+      <details class="more"><summary>contact &amp; MOA details</summary><div class="panel">
+      <dl class="kv"><dt>Address</dt><dd>11F Aeon Center, Zapote Road, N Bridgeway, Alabang, Muntinlupa</dd></dl>
+      <dl class="kv"><dt>Contact</dt><dd>Jay Espiritu<br><span style="color:var(--muted)">Talent Acquisition Partner</span></dd></dl>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:jay.espiritu@latticesemi.com">jay.espiritu@latticesemi.com</a></dd></dl>
+      <dl class="kv"><dt>MOA</dt><dd>May 18, 2026 - May 17, 2029</dd></dl>
+      <dl class="kv"><dt>Slots</dt><dd>not stated</dd></dl>
+      <dl class="kv"><dt>Intake</dt><dd>not stated</dd></dl>
+    </div></details>
+    </div>
+  </li>
+  </ol>
+  <p class="empty" id="empty" hidden>Nothing matches that filter. Clear the search or pick “All 7”.</p>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <h3>Where the numbers come from</h3>
+      <ul>
+        <li><b>₱ figures</b> are lifted from the posting itself — Prosple's salary field for Security Bank STAR, an Indeed salary line for the Coca-Cola Santa Rosa IE intern. Not estimates I invented.</li>
+        <li><b>Distance</b> is OSRM road distance from DLSU–Taft (14.5649, 120.9931), traffic-free. Add 40–100% at rush hour.</li>
+        <li><b>Intern reality</b> quotes Indeed and JobStreet intern reviews. “No first-hand account” means exactly that.</li>
+        <li>Allowances shift per cohort and per business unit — the number in a 2025 posting is not a promise for 2027.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Ask these three questions</h3>
+      <ul>
+        <li>Is there a monthly allowance, and is it released weekly or at the end?</li>
+        <li>Does it cover transport for site/plant visits, or is that separate?</li>
+        <li>Which unit will I be assigned to? At Security Bank and Coca-Cola the answer changes the work entirely.</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  const rows=[...document.querySelectorAll('li.row')];
+  const chips=[...document.querySelectorAll('.chip[data-filter]')];
+  const q=document.getElementById('q'), empty=document.getElementById('empty'), live=document.getElementById('live');
+  let filter='all';
+  function apply(){
+    const term=q.value.trim().toLowerCase(); let shown=0;
+    rows.forEach(li=>{
+      const km=parseFloat(li.dataset.km), m=li.dataset.money, fit=li.dataset.fit;
+      const ok = filter==='all'
+        || (filter==='cash'   ? m==='amount'
+        :  filter==='silent' ? m==='none'
+        :  filter==='near'   ? km<=6
+        :  filter==='high'   ? (fit==='HIGH'||fit==='MED-HIGH') : true);
+      const okTerm = !term || li.dataset.text.includes(term);
+      li.hidden = !(ok && okTerm);
+      if(!li.hidden) shown++;
+    });
+    empty.hidden = shown>0;
+  }
+  chips.forEach(c=>c.addEventListener('click',()=>{
+    chips.forEach(o=>o.setAttribute('aria-pressed', String(o===c)));
+    filter=c.dataset.filter; apply();
+  }));
+  q.addEventListener('input',apply);
+  apply();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+[
+ {
+  "company": "Ayala Property Management Corporation (APMC)",
+  "site": "https://www.ayalaproperty.com.ph/",
+  "careers": "https://www.kalibrr.ph/c/ayala-property-management-corporation-apmc/jobs",
+  "fit": "MED-HIGH",
+  "offering": "Integrated property management for Ayala Land towers, malls, parking, waterworks; special technical services.",
+  "roles": "Building systems (ELV/CCTV/FDAS/BMS) engineering intern; facilities maintenance & testing intern; auxiliary systems intern (gensets, UPS, elevators); instrumentation exposure via USHER seismic-monitoring installs",
+  "posts": [],
+  "ev": "Kalibrr APMC company page; APMC appears as a USHER monitoring client",
+  "km": 4.7,
+  "min": 6,
+  "linkedin": "https://www.linkedin.com/company/ayala-property-management-corporation",
+  "address": "MSE Building, Ayala Avenue, Makati City",
+  "contact": "Rigel Marie C. Tiglao",
+  "position": "HR Talent Acquisition Management",
+  "email": "caunca.gel@ayalaprperty.com.ph",
+  "effectivity": "October 22, 2025 - October 21, 2028",
+  "slots": "",
+  "intake": "",
+  "intern": {
+   "n": 4,
+   "stars": "4.8",
+   "src": "Indeed · 4 intern reviews",
+   "bullets": [
+    "Workload is genuinely light — \"not much to do most of the time\", \"job is not that hard if you're an intern\".",
+    "Exposure is site/property based: construction walkthroughs, building operations, hands-on with the engineering team.",
+    "Teams are described as friendly and willing to teach; little of it is electronics design."
+   ],
+   "quote": "\"I carried a lot of learnings... they really provided a strong foundation of hands on experience about construction.\"",
+   "url": "https://ph.indeed.com/cmp/Ayala-Property-Management-Corporation/job-titles/Intern"
+  },
+  "money": {
+   "amount": "no figure on record",
+   "tier": "none",
+   "cash": null,
+   "basis": "MOA listing states no allowance; no intern mentions pay in any review.",
+   "note": "Assume unpaid unless HR says otherwise — APMC is a property manager, not a tech stipend shop. Budget for daily commute from Taft (₱50–80 round trip).",
+   "src": "https://ph.indeed.com/cmp/Ayala-Property-Management-Corporation/job-titles/Intern"
+  },
+  "name_short": "APMC"
+ },
+ {
+  "company": "Security Bank Corporation",
+  "site": "https://www.securitybank.com/",
+  "careers": "https://www.securitybank.com/careers/security-bank-internship-program/",
+  "fit": "MEDIUM",
+  "offering": "Universal bank; STAR (Student Training and Advanced Readiness) Internship Program run per business unit.",
+  "roles": "IT Infrastructure / Network Operations intern (data centre, LAN/WAN, structured cabling); Information Security / SOC intern; ATM & self-service channel engineering intern; facilities & business-continuity engineering intern",
+  "posts": [
+   [
+    "STAR Internship Program (Multimedia-Graphics) — past cohort",
+    "https://www.linkedin.com/jobs/view/3935143880"
+   ]
+  ],
+  "ev": "securitybank.com STAR program page; STAR posting verified on LinkedIn",
+  "km": 4.7,
+  "min": 6,
+  "linkedin": "https://www.linkedin.com/company/security-bank-corporation",
+  "address": "6776 Ayala Avenue, Makati City",
+  "contact": "Jamila E. Pialago",
+  "position": "Sr. Asst. Manager/Talent Acquisition- RecruitmentMarketing & Strategy",
+  "email": "MFrancisco@securitybank.com.ph",
+  "effectivity": "July 2024 - July 2027",
+  "slots": "",
+  "intake": "",
+  "intern": {
+   "n": 4,
+   "stars": "4.0",
+   "src": "Indeed · 4 intern reviews",
+   "bullets": [
+    "Rotation across a business unit — interns report real tasks (industry research, competitor scans, vendor surveys) plus clerical work.",
+    "Allowance is real money (~₱10k+) but at least one cohort was paid more than 2 months after finishing.",
+    "Unit-dependent: marketing, corporate banking and STAR cohorts described differently. Ask which unit you'd land in."
+   ],
+   "quote": "\"Our allowance took more than 2 months after finishing the internship before we received it.\"",
+   "url": "https://ph.indeed.com/cmp/Security-Bank-Corporation/job-titles/Intern"
+  },
+  "money": {
+   "amount": "₱9,000 – 10,000 / mo",
+   "tier": "amount",
+   "cash": 9500,
+   "basis": "Prosple salary field on STAR postings — ₱9,000–10,000 for the Feb 2026 Industrial Engineering cohort; the Cebu cohort listed ₱5,000–7,000.",
+   "note": "Best-documented stipend on the list. Catch: one 2025 cohort was paid more than two months after finishing.",
+   "src": "https://ph.prosple.com/graduate-employers/security-bank-corporation/jobs-internships"
+  },
+  "name_short": "Security Bank"
+ },
+ {
+  "company": "Edgepoint Towers Inc.",
+  "site": "https://edgepointinfra.com/",
+  "careers": "https://edgepointinfra.com/get-in-touch",
+  "fit": "HIGH",
+  "offering": "Tower & ancillary infrastructure: ground-base towers, monopoles, rooftop, smart poles; site acquisition, build, maintenance, upgrades for mobile operators.",
+  "roles": "RF / radio planning & site design intern; site engineering intern (structural loading, grounding, lightning protection); power systems intern (rectifiers, gensets, solar-hybrid); NOC / remote monitoring intern",
+  "posts": [],
+  "ev": "edgepointinfra.com/solutions-services/towers-ancillary-services; /careers 404s with 'drop us your resume'",
+  "km": 4.9,
+  "min": 7,
+  "linkedin": "",
+  "address": "26th Floor, Robinsons Summit Center, Ayala Makati City",
+  "contact": "Agcelene Kate Sojor (Kate)",
+  "position": "Executive, HR & Admin",
+  "email": "kate.sojor@edgepointinfra.com",
+  "effectivity": "September 2025 - September 2027",
+  "slots": "",
+  "intake": "",
+  "intern": {
+   "n": 0,
+   "stars": "",
+   "src": "no first-hand accounts found",
+   "bullets": [
+    "Nothing on Indeed, JobStreet, Glassdoor or Reddit under this name — the PH entity is young and rarely reviews.",
+    "Expect site/field work: tower sites, power cabinets, grounding, drive testing. Treat the role list as inferred only."
+   ],
+   "quote": "",
+   "url": ""
+  },
+  "money": {
+   "amount": "no figure on record",
+   "tier": "none",
+   "cash": null,
+   "basis": "Their Engineering Intern listing shows “pay information not provided”; no intern reviews exist.",
+   "note": "Tower companies usually pay field allowances rather than a stipend. Ask specifically about transport + meal allowance for site visits.",
+   "src": "https://ph.jobrapido.com/jobpreview/62085764455858176"
+  },
+  "name_short": "Edgepoint Towers"
+ },
+ {
+  "company": "Meinhardt Philippines, Inc.",
+  "site": "https://meinhardt.ph/",
+  "careers": "https://meinhardt.ph/careers/",
+  "fit": "HIGH",
+  "offering": "Multi-disciplinary consultancy: Electronics Engineering (ELV), Fire & Life Safety, Security/CCTV, ICT, MEPF, rail & transport, data centres. BIM-driven design.",
+  "roles": "ELV / Electronics Engineering design intern; ICT & structured-cabling design intern; Fire detection & alarm (FDAS) design intern; BIM/Revit modelling intern; site supervision & testing-commissioning intern",
+  "posts": [],
+  "ev": "meinhardt.ph/capabilities/electronics-engineering/ (own ECE practice page)",
+  "km": 5.1,
+  "min": 6,
+  "linkedin": "https://www.linkedin.com/company/meinhardt-group",
+  "address": "25F Chatham House 116 Rufino cor. Valero Sts. Salcedo Village, Makati City",
+  "contact": "Glaiza Lacanlalay",
+  "position": "HR Head",
+  "email": "glacanlalay@meinhardt.com.ph",
+  "effectivity": "March 15, 2024 - March 15, 2027",
+  "slots": "",
+  "intake": "",
+  "intern": {
+   "n": 1,
+   "stars": "4.0",
+   "src": "Indeed · 1 intern review",
+   "bullets": [
+    "\"Light working environment\", friendly engineers, work-life balance good — the single review is positive but thin.",
+    "Consultancy cadence: drawings, BIM coordination, site visits, submittals — not lab work."
+   ],
+   "quote": "\"Fun work place and light working environment... it helps me to develop my skills.\"",
+   "url": "https://ph.indeed.com/cmp/Meinhardt-Philippines-Inc./reviews?fjobtitle=Intern"
+  },
+  "money": {
+   "amount": "no figure on record",
+   "tier": "none",
+   "cash": null,
+   "basis": "No stipend published anywhere; consultancy OJT in PH is typically unpaid.",
+   "note": "Their only intern review calls it “light” — a low-cost placement, in both senses. Negotiate a transport allowance up front.",
+   "src": "https://ph.indeed.com/cmp/Meinhardt-Philippines-Inc./reviews?fjobtitle=Intern"
+  },
+  "name_short": "Meinhardt PH"
+ },
+ {
+  "company": "Coca-Cola Europacific Aboitiz Philippines, Inc.",
+  "site": "https://www.ccep.com.ph/",
+  "careers": "https://www.ccep.com.ph/careers",
+  "fit": "MED-HIGH",
+  "offering": "Beverage manufacturing plants (Calamba, Sta. Rosa, Canlubang and others): bottling lines, utilities, packaging.",
+  "roles": "Automation & controls intern (PLC/SCADA/HMI); instrumentation & metering intern; packaging-line electrical maintenance intern; utilities engineering intern (chillers, compressors, power)",
+  "posts": [
+   [
+    "Internship",
+    "https://www.linkedin.com/jobs/view/4284100749"
+   ]
+  ],
+  "ev": "LinkedIn job 4284100749 'Internship — Coca-Cola Europacific Aboitiz Philippines'",
+  "km": 8.8,
+  "min": 10,
+  "linkedin": "https://www.linkedin.com/company/coca-cola-europacific-partners",
+  "address": "28F Net Lima Building, 5th Avenue corner 26th Street, Bonifacio Global City, Taguig City",
+  "contact": "Manelyn Ravilles",
+  "position": "People Operation",
+  "email": "manelyn.ravilles@coca-cola.com.ph",
+  "effectivity": "September 20, 2024 - September 20, 2027",
+  "slots": "",
+  "intake": "",
+  "intern": {
+   "n": 3,
+   "stars": "5.0",
+   "src": "Indeed · 3 intern reviews",
+   "bullets": [
+    "Every review is from a corporate-function intern (People Systems, HR Operations) in BGC — not a plant.",
+    "Described as light, friendly, with staff who genuinely teach. Nobody reports line/automation work."
+   ],
+   "quote": "\"Interned for the People Systems department (HR Operations), very light and friendly vibes.\"",
+   "url": "https://ph.indeed.com/cmp/Coca--cola-Europacific-Aboitiz-Philippines-1/job-titles/Intern"
+  },
+  "money": {
+   "amount": "₱17,000 – 20,000 / mo",
+   "tier": "amount",
+   "cash": 18500,
+   "basis": "Indeed salary line on their Industrial Engineering Intern role at the Santa Rosa plant: PHP 17,000 – 20,000 a month.",
+   "note": "The money is in the Laguna plants, not the BGC office — and a reviewer notes the internship is “heavier compared to other companies”. Commute from Manila is 1.5–2 h each way.",
+   "src": "https://ph.indeed.com/cmp/Coca--cola-Europacific-Aboitiz-Philippines-1/locations/04A/Santa%20Rosa%20City"
+  },
+  "name_short": "Coca-Cola EP Aboitiz"
+ },
+ {
+  "company": "Meralco Power Academy",
+  "site": "https://www.meralcopoweracademy.org/",
+  "careers": "https://www.meralcopoweracademy.org/powercamp/",
+  "fit": "MED-HIGH",
+  "offering": "Meralco's training arm; PowerCamp is their flagship engineering internship across the One Meralco ecosystem.",
+  "roles": "PowerCamp intern — rotation through Meralco / MIESCOR (substations, lines, protection); energy-lab & training-support intern; smart-grid / metering exposure",
+  "posts": [],
+  "ev": "meralcopoweracademy.org/powercamp — 'premier internship program... immerses students across the One Meralco ecosystem'",
+  "km": 13.8,
+  "min": 18,
+  "linkedin": "https://www.linkedin.com/company/meralcopoweracademy",
+  "address": "Lopez Building, Ortigas Avenue, Barangay Ugong, Pasig City",
+  "contact": "Kathleen Kristy Dorico",
+  "position": "Director for Advocacy and Communication",
+  "email": "kkddorico@meralcopoweracademy.org/ apestrella@meralcopoweracademy.org",
+  "effectivity": "March 25, 2025 until March 24, 2028",
+  "slots": "",
+  "intake": "",
+  "intern": {
+   "n": 0,
+   "stars": "",
+   "src": "press accounts only (no anonymous reviews)",
+   "bullets": [
+    "PowerCamp is 280 hours, June–July, and Mapúa is an explicit partner university — the most selective option here.",
+    "Interns rotate through One Meralco companies, visit the Power Lab (appliance testing/efficiency), do business casing and a live case presentation.",
+    "It's a recruitment pipeline: alumni convert to Cadet Engineer roles (e.g. MGEN Renewables)."
+   ],
+   "quote": "\"The PowerCamp opened doors for me... Now, I'm here as a Cadet Engineer at MGEN Renewables.\"",
+   "url": "https://bworldonline.com/spotlight/2026/09/10/775949/28-engineering-students-complete-meralco-power-academy-internship-program/"
+  },
+  "money": {
+   "amount": "low — figure not published",
+   "tier": "hint",
+   "cash": null,
+   "basis": "Prosple intern review: “As an intern, the pay was a bit low considering the commute expenses.” No number published.",
+   "note": "280 hours, June–July, Mapúa is an explicit partner school. Treat it as a recruitment pipeline, not a paycheck: alumni convert to Cadet Engineer roles.",
+   "src": "https://www.meralcopoweracademy.org/powercamp/"
+  },
+  "name_short": "Meralco Power Academy"
+ },
+ {
+  "company": "LATTICE SEMICONDUCTOR PHILIPPINES",
+  "site": "https://www.latticesemi.com/",
+  "careers": "https://www.latticesemi.com/careers",
+  "fit": "HIGH",
+  "offering": "Low-power FPGA design, software & IP; Alabang/Northgate site does design and applications engineering.",
+  "roles": "Design Verification Intern (UVM/SystemVerilog); FPGA Applications Engineering intern; Test/Product Engineering intern; board bring-up & lab validation intern",
+  "posts": [
+   [
+    "Design Verification Intern — Muntinlupa",
+    "https://www.linkedin.com/jobs/view/4221237793"
+   ]
+  ],
+  "ev": "LinkedIn posting verified: 'Design Verification Intern, Lattice Semiconductor, Muntinlupa City'",
+  "km": 19.7,
+  "min": 22,
+  "linkedin": "https://www.linkedin.com/company/latticesemi",
+  "address": "11F Aeon Center, Zapote Road, N Bridgeway, Alabang, Muntinlupa",
+  "contact": "Jay Espiritu",
+  "position": "Talent Acquisition Partner",
+  "email": "jay.espiritu@latticesemi.com",
+  "effectivity": "May 18, 2026 - May 17, 2029",
+  "slots": "",
+  "intake": "",
+  "intern": {
+   "n": 1,
+   "stars": "5.0",
+   "src": "Indeed · 1 intern review + JobStreet 4.7/5 (14)",
+   "bullets": [
+    "Intern review: good environment, competitive compensation, \"you'll definitely learn a lot\", easy-going people.",
+    "JobStreet employees add the caveat: weak onboarding — \"no transparent training, you have to learn it yourself\".",
+    "Career development scores lowest of their sub-ratings (3.9/5) while work-life balance is highest (4.6/5)."
+   ],
+   "quote": "\"Good environment, good compensation benefits and incentives. You'll definitely learn a lot.\"",
+   "url": "https://ph.jobstreet.com/companies/lattice-semiconductor-168556645019714/reviews"
+  },
+  "money": {
+   "amount": "“competitive stipend” — no figure",
+   "tier": "hint",
+   "cash": null,
+   "basis": "Prosple: “Interns at Lattice Semiconductor may receive competitive stipends.” Their EE full-time roles post at ₱30,000–40,000/mo.",
+   "note": "Highest ceiling on the list but the least transparency. Ask HR directly for the intern rate before accepting.",
+   "src": "https://prosple.com/graduate-employers/lattice-semiconductor/jobs-internships/cadeda-intern"
+  },
+  "name_short": "Lattice Semiconductor"
+ }
+]
